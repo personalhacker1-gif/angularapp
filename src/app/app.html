@@ -1,27 +1,98 @@
-<div style="margin: 50px; font-family: Arial, sans-serif;">
-  <h2 style="color: #1976d2;">Jenkins CI/CD Test Table</h2>
-  <table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%; text-align: left;">
-    <thead>
-      <tr style="background-color: #f2f2f2;">
-        <th>Step Name</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Code Push to GitHub   vercel</td>
-        <td style="color: green; font-weight: bold;">✔ Success</td>
-      </tr>
-      <tr>
-        <td>Jenkins Auto Build</td>
-        <td style="color: green; font-weight: bold;">✔ Success</td>
-      </tr>
+<div style="max-width: 800px; margin: 40px auto; padding: 24px; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+  
+  <!-- Dashboard Header -->
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border-bottom: 2px solid #f0f2f5; padding-bottom: 16px;">
+    <div>
+      <h2 style="color: #1e293b; margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.5px;">Jenkins CI/CD Pipeline Dashboard</h2>
+      <p style="color: #64748b; margin: 4px 0 0 0; font-size: 14px;">Developer: <strong style="color: #0f172a;">Salman Khan Afridi</strong></p>
+    </div>
+    <!-- Live Pulse Indicator -->
+    <span style="display: inline-flex; align-items: center; gap: 6px; background: #eff6ff; color: #2563eb; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
+      <span style="width: 8px; height: 8px; background: #2563eb; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite ease-in-out;"></span>
+      Active Session
+    </span>
+  </div>
 
-      <tr>
-        <td>Nginx Auto Deploy</td>
-        <td style="color: blue; font-weight: bold;">⏳ Testing  salman khan afridi Now...</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Live Status Table -->
+  <div style="overflow-x: auto; margin-bottom: 32px;">
+    <table style="width: 100%; border-collapse: separate; border-spacing: 0; text-align: left;">
+      <thead>
+        <tr>
+          <th style="background-color: #f8fafc; color: #475569; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; border-top-left-radius: 6px; border-bottom-left-radius: 6px;">Step Name</th>
+          <th style="background-color: #f8fafc; color: #475569; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; padding: 14px 20px; border-bottom: 2px solid #e2e8f0; border-top-right-radius: 6px; border-bottom-right-radius: 6px; width: 30%;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="transition: background 0.2s;">
+          <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; color: #334155; font-size: 15px; font-weight: 500;">Code Push to GitHub (Vercel)</td>
+          <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9;">
+            <span style="display: inline-flex; align-items: center; background-color: #ecfdf5; color: #059669; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">✔ Success</span>
+          </td>
+        </tr>
+        <tr style="transition: background 0.2s;">
+          <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; color: #334155; font-size: 15px; font-weight: 500;">Jenkins Auto Build</td>
+          <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9;">
+            <span style="display: inline-flex; align-items: center; background-color: #ecfdf5; color: #059669; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">✔ Success</span>
+          </td>
+        </tr>
+        <tr style="transition: background 0.2s;">
+          <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; color: #334155; font-size: 15px; font-weight: 500;">Nginx Auto Deploy</td>
+          <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9;">
+            <span style="display: inline-flex; align-items: center; background-color: #eff6ff; color: #1d4ed8; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;">⏳ Testing Now...</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Setup Architecture Journey Section -->
+  <div style="border-top: 1px solid #f0f2f5; padding-top: 24px;">
+    <h3 style="color: #1e293b; font-size: 16px; font-weight: 600; margin: 0 0 20px 0;">Pipeline Process Architecture</h3>
+    
+    <!-- Vertical Timeline Container -->
+    <div style="position: relative; padding-left: 32px; border-left: 2px solid #e2e8f0; margin-left: 10px;">
+      
+      <!-- Timeline Item 1 -->
+      <div style="position: relative; margin-bottom: 24px;">
+        <span style="position: absolute; left: -42px; top: 0; background: #3b82f6; width: 18px; height: 18px; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #3b82f6;"></span>
+        <h4 style="margin: 0 0 4px 0; color: #0f172a; font-size: 15px; font-weight: 600;">Step 1: Jenkinsfile aur Environment Config</h4>
+        <p style="margin: 0; color: #64748b; font-size: 13.5px; line-height: 1.5;">Angular project ke andar Jenkinsfile banayi, node20 configuration load kiya, aur Jenkins Credentials mein VERCEL_TOKEN ko secure kiya.</p>
+      </div>
+
+      <!-- Timeline Item 2 -->
+      <div style="position: relative; margin-bottom: 24px;">
+        <span style="position: absolute; left: -42px; top: 0; background: #3b82f6; width: 18px; height: 18px; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #3b82f6;"></span>
+        <h4 style="margin: 0 0 4px 0; color: #0f172a; font-size: 15px; font-weight: 600;">Step 2: Local Vercel Linkage</h4>
+        <p style="margin: 0; color: #64748b; font-size: 13.5px; line-height: 1.5;">Terminal par Vercel CLI se project link kiya. Generated <code>.vercel/project.json</code> file ko Git par push kiya taaki Jenkins automated deploy kar sake.</p>
+      </div>
+
+      <!-- Timeline Item 3 -->
+      <div style="position: relative; margin-bottom: 24px;">
+        <span style="position: absolute; left: -42px; top: 0; background: #3b82f6; width: 18px; height: 18px; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #3b82f6;"></span>
+        <h4 style="margin: 0 0 4px 0; color: #0f172a; font-size: 15px; font-weight: 600;">Step 3: GitHub Webhook Integration</h4>
+        <p style="margin: 0; color: #64748b; font-size: 13.5px; line-height: 1.5;">GitHub Repository ki settings mein Jenkins Payload URL configure kiya, jisse local code push hote hi Jenkins auto-trigger ho jaye.</p>
+      </div>
+
+      <!-- Timeline Item 4 -->
+      <div style="position: relative;">
+        <span style="position: absolute; left: -42px; top: 0; background: #10b981; width: 18px; height: 18px; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #10b981;"></span>
+        <h4 style="margin: 0 0 4px 0; color: #0f172a; font-size: 15px; font-weight: 600;">Step 4: Fully Automated CI/CD Execution</h4>
+        <p style="margin: 0; color: #64748b; font-size: 13.5px; line-height: 1.5;">Webhook trigger hote hi Jenkins ne automatic npm packages install kiye, build banaya, aur bina manual intervention ke <code>--yes</code> flag se Vercel par live kar diya.</p>
+      </div>
+
+    </div>
+  </div>
+
 </div>
-<router-outlet />
+
+<!-- Angular Router Outlet for child components -->
+<router-outlet></router-outlet>
+
+<!-- CSS Animation for live pulse -->
+<style>
+  @keyframes pulse {
+    0% { opacity: 0.4; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.4; transform: scale(0.95); }
+  }
+</style>
