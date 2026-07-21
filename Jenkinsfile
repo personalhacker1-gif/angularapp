@@ -9,7 +9,7 @@ pipeline {
         // Nginx jahan se website serve karega
         DEPLOY_DIR = '/var/www/myapp'
         // Apne angular.json me jo 'projectName' hai yahan likhein (jaise 'my-angular-app')
-        PROJECT_NAME = 'your-angular-app-name' 
+        PROJECT_NAME = 'project' 
     }
 
     stages {
