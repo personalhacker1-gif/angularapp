@@ -9,8 +9,9 @@ pipeline {
         DEPLOY_DIR = '/var/www/myapp'
         PROJECT_NAME = 'project' 
         
-        // 📧 Jin-jin logon ko email bhejna hai yahan comma (,) laga kar add karein
-        EMAIL_RECIPIENTS = 'afridisalmankhan@gmail.com,000sultankhan@gmail.com'    }
+        // 📧 Bina space ke comma-separated emails
+        EMAIL_RECIPIENTS = 'afridisalmankhan@gmail.com,000sultankhan@gmail.com'
+    }
 
     stages {
         stage('Build') {
@@ -39,7 +40,7 @@ pipeline {
         // 🟢 BUILD SUCCESS HONE PAR
         success {
             emailext (
-                to: "${env.EMAIL_RECIPIENTS}",
+                to: env.EMAIL_RECIPIENTS,
                 subject: "✅ SUCCESS: Job '${env.JOB_NAME}' [#${env.BUILD_NUMBER}]",
                 body: """
                     <div style="font-family: Arial, sans-serif; padding: 15px; border: 2px solid #28a745;">
@@ -58,7 +59,7 @@ pipeline {
         // 🔴 BUILD FAIL HONE PAR
         failure {
             emailext (
-                to: "${env.EMAIL_RECIPIENTS}",
+                to: env.EMAIL_RECIPIENTS,
                 subject: "❌ FAILURE: Job '${env.JOB_NAME}' [#${env.BUILD_NUMBER}]",
                 body: """
                     <div style="font-family: Arial, sans-serif; padding: 15px; border: 2px solid #dc3545;">
