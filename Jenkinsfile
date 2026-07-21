@@ -10,8 +10,7 @@ pipeline {
         PROJECT_NAME = 'project' 
         
         // 📧 Jin-jin logon ko email bhejna hai yahan comma (,) laga kar add karein
-        EMAIL_RECIPIENTS = 'afridisalmankhan@gmail.com, 000sultankhan@gmail.com'
-    }
+        EMAIL_RECIPIENTS = 'afridisalmankhan@gmail.com,000sultankhan@gmail.com'    }
 
     stages {
         stage('Build') {
