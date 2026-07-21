@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    
+    // Jenkins ko batayega ki 'node20' naam ki configuration use kare
+    tools {
+        nodejs 'node20'
+    }
+    
+    
+    environment {
+        VERCEL_TOKEN = credentials('VERCEL_TOKEN')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Starting Node Modules Installation and Production Build...'
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to Vercel Production...'
+                // Vercel CLI ko use karte hue deploy
+                sh "npx vercel --prod --token ${VERCEL_TOKEN} --yes"
+            }
+        }
+    }
+}
