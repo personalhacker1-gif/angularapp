@@ -5,6 +5,7 @@ pipeline {
         nodejs 'node20'
     }
     
+    
     environment {
         DEPLOY_DIR = '/var/www/myapp'
         PROJECT_NAME = 'project' 
