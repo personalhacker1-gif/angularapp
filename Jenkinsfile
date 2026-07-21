@@ -9,8 +9,8 @@ pipeline {
         DEPLOY_DIR = '/var/www/myapp'
         PROJECT_NAME = 'project' 
         
-        // 📧 Multiple emails with comma and space
-        EMAIL_RECIPIENTS = 'afridisalmankhan@gmail.com, 000sultankhan@gmail.com'
+        // 📧 Multi-recipients separated by comma and space
+        EMAIL_RECIPIENTS = 'afridisalmankhan@gmail.com, 000sultankhan@gmail.com, personalhacker1@gmail.com'
     }
 
     stages {
@@ -39,41 +39,39 @@ pipeline {
     post {
         // 🟢 BUILD SUCCESS HONE PAR
         success {
-            emailext (
-                to: "${env.EMAIL_RECIPIENTS}",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+            mail (
+                to: env.EMAIL_RECIPIENTS,
                 subject: "✅ SUCCESS: Job '${env.JOB_NAME}' [#${env.BUILD_NUMBER}]",
                 body: """
-                    <div style="font-family: Arial, sans-serif; padding: 15px; border: 2px solid #28a745;">
-                        <h2 style="color: #28a745;">🎉 Deployment Successful!</h2>
-                        <p>Angular project successfully build aur Nginx server par deploy ho gaya hai.</p>
-                        <hr>
-                        <p><b>Project Name:</b> ${env.JOB_NAME}</p>
-                        <p><b>Build Number:</b> #${env.BUILD_NUMBER}</p>
-                        <p><b>Build Link:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                    </div>
-                """,
-                mimeType: 'text/html'
+--------------------------------------------------
+Deployment Successful!
+--------------------------------------------------
+Angular project successfully build aur Nginx server par deploy ho gaya hai.
+
+Project Name: ${env.JOB_NAME}
+Build Number: #${env.BUILD_NUMBER}
+Build Link: ${env.BUILD_URL}
+""",
+                mimeType: 'text/plain'
             )
         }
         
         // 🔴 BUILD FAIL HONE PAR
         failure {
-            emailext (
-                to: "${env.EMAIL_RECIPIENTS}",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+            mail (
+                to: env.EMAIL_RECIPIENTS,
                 subject: "❌ FAILURE: Job '${env.JOB_NAME}' [#${env.BUILD_NUMBER}]",
                 body: """
-                    <div style="font-family: Arial, sans-serif; padding: 15px; border: 2px solid #dc3545;">
-                        <h2 style="color: #dc3545;">⚠️ Deployment Failed!</h2>
-                        <p>Deployment me koi error aaya hai. Kripya Jenkins log check karein.</p>
-                        <hr>
-                        <p><b>Project Name:</b> ${env.JOB_NAME}</p>
-                        <p><b>Build Number:</b> #${env.BUILD_NUMBER}</p>
-                        <p><b>Console Logs Link:</b> <a href="${env.BUILD_URL}console">${env.BUILD_URL}console</a></p>
-                    </div>
-                """,
-                mimeType: 'text/html'
+--------------------------------------------------
+Deployment Failed!
+--------------------------------------------------
+Deployment me koi error aaya hai. Kripya Jenkins log check karein.
+
+Project Name: ${env.JOB_NAME}
+Build Number: #${env.BUILD_NUMBER}
+Console Logs Link: ${env.BUILD_URL}console
+""",
+                mimeType: 'text/plain'
             )
         }
     }
